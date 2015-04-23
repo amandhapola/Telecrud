@@ -1,0 +1,52 @@
+<nav class="navbar-form navbar-default" style="background-color:rgba(0,0,0,0.1)">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-right:3%;top:3%;">
+      <a class="navbar-left" href="#/">
+      <h3>AAI</h3>
+      </a>
+      </div>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+        <input  type="text" class="form-control" placeholder="Search any" ng-model="search">
+        </div>
+        <div class="form-group">
+        <input  type="text" class="form-control" placeholder="Search username" ng-model="search.username">
+        </div>
+        <div class="form-group">
+        <input  type="text" class="form-control" placeholder="Search fname" ng-model="search.first_name">
+        </div>
+        <div class="form-group">
+        <input  type="text" class="form-control" placeholder="Search lname" ng-model="search.last_name">
+        </div>
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search address" ng-model="search.address">
+        </div>
+        </form>
+  </div>
+</nav>
+<!-- Search:<input ng-model="search">
+UName only <input ng-model="search.username">
+FName only <input ng-model="search.first_name">
+LName only <input ng-model="search.last_name">
+address only <input ng-model="search.address"> -->
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in users | filter:search">
+      <td>{{user.username}}</td>
+      <td>{{user.first_name}}</td>
+      <td>{{user.last_name}}</td>
+      <td>{{user.address}}</td>
+      <td><a href="#/edit/{{user.id}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></button></td>
+    </tr>
+  </tbody>
+</table>
+<a class="btn btn-primary" href="#/add-user">Add New User</a>
